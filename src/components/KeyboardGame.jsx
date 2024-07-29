@@ -22,11 +22,16 @@ export const KeyboardGame = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 's' && gameOver) {
-        setShowStats(true);
-      } else if (event.key === 'r' && gameOver) {
-        setShowStats(false);
-        startGame();
+      if (showStats) {
+        if (event.key === 'b') {
+          setShowStats(false);
+        }
+      } else if (gameOver) {
+        if (event.key === 's') {
+          setShowStats(true);
+        } else if (event.key === 'r') {
+          startGame();
+        }
       } else {
         handleKeyPress(event);
       }
@@ -36,12 +41,10 @@ export const KeyboardGame = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [handleKeyPress, gameOver, startGame]);
+  }, [handleKeyPress, gameOver, startGame, showStats]);
 
   if (showStats) {
-    return (
-      <StatsPage allScores={allScores} onBack={() => setShowStats(false)} />
-    );
+    return <StatsPage allScores={allScores} />;
   }
 
   return (
@@ -57,6 +60,7 @@ export const KeyboardGame = () => {
         <p>Type the US key shown. Pay attention to which finger to use!</p>
         <p>The timer will start when you press the first key.</p>
         <p>After a game, press 'r' to restart or 's' to view stats.</p>
+        <p>When viewing stats, press 'b' to return to the game.</p>
       </div>
       {gameOver ? (
         <GameOver

@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-const StatsPage = ({ allScores, onBack }) => {
+const StatsPage = ({ allScores }) => {
   const chartData = allScores.map((score, index) => ({
     game: index + 1,
     score: score.score,
@@ -41,12 +41,9 @@ const StatsPage = ({ allScores, onBack }) => {
         </p>
         <p>Highest score: {Math.max(...allScores.map((game) => game.score))}</p>
       </div>
-      <button
-        onClick={onBack}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-      >
-        Back to Game
-      </button>
+      <p className="mt-4 text-blue-600 font-bold">
+        Press 'b' to return to the game
+      </p>
     </div>
   );
 };
