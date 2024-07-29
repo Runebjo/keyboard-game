@@ -12,7 +12,9 @@ const GameBoard = ({
 }) => {
   return (
     <div className="text-center">
-      <p className="text-4xl font-bold mb-2">{currentKey.key}</p>
+      <p className="text-4xl font-bold mb-2 pb-2 bg-gray-300">
+        {currentKey.key}
+      </p>
       <FingerDisplay currentKey={currentKey} />
       <div className="mb-4 text-center w-full p-2 border border-gray-300 rounded h-12 overflow-hidden">
         {userInput.map((char, index) => (

@@ -25,7 +25,7 @@ export const codingKeys = [
   { key: '>', shift: true, finger: 'right ring' },
   { key: '?', shift: true, finger: 'right pinky' },
   { key: '~', shift: true, finger: 'left pinky' },
-  { key: '`', shift: true, finger: 'left pinky' },
+  { key: '`', shift: false, finger: 'left pinky' },
   { key: '!', shift: true, finger: 'left pinky' },
   { key: '@', shift: true, finger: 'left ring' },
   { key: '#', shift: true, finger: 'left middle' },

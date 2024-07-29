@@ -26,13 +26,19 @@ const useGameLogic = () => {
 
   const saveScore = useCallback(() => {
     if (gameId !== null) {
-      const newScore = { id: gameId, score, date: new Date().toISOString() };
+      const newScore = {
+        id: gameId,
+        score,
+        date: new Date().toISOString(),
+        errorCount,
+        correctCount,
+      };
       const newScores = [...allScores, newScore];
       setAllScores(newScores);
       localStorage.setItem('keyboardGameScores', JSON.stringify(newScores));
       setGameId(null);
     }
-  }, [score, gameId, allScores]);
+  }, [score, gameId, allScores, errorCount, correctCount]);
 
   useEffect(() => {
     let timer;
